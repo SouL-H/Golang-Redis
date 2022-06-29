@@ -38,10 +38,10 @@ func main() {
 		fmt.Println("Key: ", k)
 		fmt.Println("Value: ", v)
 	}
-	reply, err := redis.Values(conn.Do("HGETALL", "album:2"))
+	reply, err := redis.Values(conn.Do("HGETALL", "album:2"))//Get Value
 	checkErr(err)
 	var album Album
-	err = redis.ScanStruct(reply, &album)
+	err = redis.ScanStruct(reply, &album)//Set struct
 	checkErr(err)
 	fmt.Println(album)
 
